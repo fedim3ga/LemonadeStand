@@ -18,10 +18,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var lemonMixLabel: UILabel!
     @IBOutlet weak var iceMixLabel: UILabel!
     
-    
+    var lemonStock = 0
+    var iceStock = 0
+    var cash = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cash = 10
+        lemonStock = 1
+        iceStock = 1
+        updateView()
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -36,18 +44,30 @@ class ViewController: UIViewController {
 
     @IBAction func lemonPurchaseAddButtonPressed(sender: AnyObject) {
         println("Purchase 1 lemon")
+        lemonStock += 1
+        cash -= 2
+        updateView()
     }
     
     @IBAction func lemonPurchaseMinusButtonPressed(sender: AnyObject) {
         println("Unpurchase 1 lemon")
+        lemonStock -= 1
+        cash += 2
+        updateView()
     }
     
     @IBAction func icePurchaseAddButtonPressed(sender: AnyObject) {
         println("Purchase 1 ice cube")
+        iceStock += 1
+        cash -= 1
+        updateView()
     }
     
     @IBAction func icePurchaseMinusButtonPressed(sender: AnyObject) {
         println("Unpurchase 1 ice cube")
+        iceStock -= 1
+        cash += 1
+        updateView()
     }
 
     @IBAction func lemonMixAddButtonPressed(sender: AnyObject) {
@@ -66,8 +86,11 @@ class ViewController: UIViewController {
         println("Remove 1 ice cube from mix")
     }
     
-    
-    
+    func updateView() {
+        lemonStockLabel.text = "\(lemonStock) lemons"
+        iceStockLabel.text = "\(iceStock) ice cubes"
+        cashLabel.text = "$\(cash)"
+    }
     
     
     
