@@ -51,9 +51,15 @@ class ViewController: UIViewController {
     
     @IBAction func lemonPurchaseMinusButtonPressed(sender: AnyObject) {
         println("Unpurchase 1 lemon")
-        lemonStock -= 1
-        cash += 2
-        updateView()
+        
+        if lemonStock <= 0 {
+            showAlertWithText(header: "0 lemons", message: "You can't have less than 0 lemons")
+        } else {
+            lemonStock -= 1
+            cash += 2
+            updateView()
+        }
+
     }
     
     @IBAction func icePurchaseAddButtonPressed(sender: AnyObject) {
@@ -65,9 +71,15 @@ class ViewController: UIViewController {
     
     @IBAction func icePurchaseMinusButtonPressed(sender: AnyObject) {
         println("Unpurchase 1 ice cube")
-        iceStock -= 1
-        cash += 1
-        updateView()
+       
+        if iceStock <= 0 {
+            showAlertWithText(header: "0 ice cubes", message: "You can't have less than 0 ice cubes")
+        } else {
+            iceStock -= 1
+            cash += 1
+            updateView()
+        }
+        
     }
 
     @IBAction func lemonMixAddButtonPressed(sender: AnyObject) {
@@ -90,6 +102,12 @@ class ViewController: UIViewController {
         lemonStockLabel.text = "\(lemonStock) lemons"
         iceStockLabel.text = "\(iceStock) ice cubes"
         cashLabel.text = "$\(cash)"
+    }
+    
+    func showAlertWithText(header:String = "Warnings", message:String) {
+        var alert = UIAlertController(title: header, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     
