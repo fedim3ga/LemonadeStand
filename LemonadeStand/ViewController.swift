@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     var cash = 0
     var lemonPurchased = 0
     var icePurchased = 0
+    var lemonMixed = 0
+    var iceMixed = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,9 @@ class ViewController: UIViewController {
     @IBAction func startDayButtonPressed(sender: AnyObject) {
         println("Day started!")
     }
+    
+    
+    // PURCHASE AND UNPURCHASE BUTTONS
 
     @IBAction func lemonPurchaseAddButtonPressed(sender: AnyObject) {
         println("Purchase 1 lemon")
@@ -62,6 +67,8 @@ class ViewController: UIViewController {
         
         if lemonPurchased <= 0 {
             showAlertWithText(header: "Unable to sell", message: "You can't sell lemons")
+        } else if lemonStock <= 0 {
+            showAlertWithText(message: "You can't have a negative amount of lemons. Remove some from the mix")
         } else {
             lemonPurchased -= 1
             lemonStock -= 1
@@ -90,6 +97,8 @@ class ViewController: UIViewController {
        
         if icePurchased <= 0 {
             showAlertWithText(header: "Unable to sell", message: "You can't sell ice")
+        } else if iceStock <= 0 {
+            showAlertWithText(message: "You can't have a negative amount of ice cubes. Remove some from the mix")
         } else {
             icePurchased -= 1
             iceStock -= 1
@@ -98,29 +107,71 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    //
+    
+    // MIX AND UNMIX BUTTONS
 
     @IBAction func lemonMixAddButtonPressed(sender: AnyObject) {
         println("Add 1 lemon to mix")
+        if lemonStock <= 0 {
+            showAlertWithText(message: "No more lemons!")
+        }
+        else {
+            lemonStock -= 1
+            lemonMixed += 1
+            updateView()
+        }
     }
 
     @IBAction func lemonMixMinusButtonPressed(sender: AnyObject) {
         println("Remove 1 lemon from mix")
+        
+        if lemonMixed <= 0 {
+            showAlertWithText(message: "No more lemons from mix!")
+        }
+        else {
+            lemonStock += 1
+            lemonMixed -= 1
+            updateView()
+        }
     }
     
     @IBAction func iceMixAddButtonPressed(sender: AnyObject) {
         println("Add 1 ice cube to mix")
+        if iceStock <= 0 {
+            showAlertWithText(message: "No more ice!")
+        }
+        else {
+            iceStock -= 1
+            iceMixed += 1
+            updateView()
+        }
     }
     
     @IBAction func iceMixMinusButtonPressed(sender: AnyObject) {
         println("Remove 1 ice cube from mix")
+        
+        if iceMixed <= 0 {
+            showAlertWithText(message: "No more ice from mix!")
+        }
+        else {
+            iceStock += 1
+            iceMixed -= 1
+            updateView()
+        }
     }
     
+    //
+
     func updateView() {
         lemonStockLabel.text = "\(lemonStock) lemons"
         iceStockLabel.text = "\(iceStock) ice cubes"
         cashLabel.text = "$\(cash)"
         icePurchaseLabel.text = "\(icePurchased)"
         lemonPurchaseLabel.text = "\(lemonPurchased)"
+        lemonMixLabel.text = "\(lemonMixed)"
+        iceMixLabel.text = "\(iceMixed)"
     }
     
     func showAlertWithText(header:String = "Warnings", message:String) {
