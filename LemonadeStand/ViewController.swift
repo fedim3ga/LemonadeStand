@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     var lemonStock = 0
     var iceStock = 0
     var cash = 0
+    var lemonPurchased = 0
+    var icePurchased = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,17 +46,24 @@ class ViewController: UIViewController {
 
     @IBAction func lemonPurchaseAddButtonPressed(sender: AnyObject) {
         println("Purchase 1 lemon")
-        lemonStock += 1
-        cash -= 2
-        updateView()
+        
+        if cash < 2 {
+            showAlertWithText(header: "Warning", message: "You don't have enough money!")
+        } else {
+            lemonPurchased += 1
+            lemonStock += 1
+            cash -= 2
+            updateView()
+        }
     }
     
     @IBAction func lemonPurchaseMinusButtonPressed(sender: AnyObject) {
         println("Unpurchase 1 lemon")
         
-        if lemonStock <= 0 {
-            showAlertWithText(header: "0 lemons", message: "You can't have less than 0 lemons")
+        if lemonPurchased <= 0 {
+            showAlertWithText(header: "Unable to sell", message: "You can't sell lemons")
         } else {
+            lemonPurchased -= 1
             lemonStock -= 1
             cash += 2
             updateView()
@@ -64,17 +73,25 @@ class ViewController: UIViewController {
     
     @IBAction func icePurchaseAddButtonPressed(sender: AnyObject) {
         println("Purchase 1 ice cube")
-        iceStock += 1
-        cash -= 1
-        updateView()
+        
+        if cash < 1 {
+            showAlertWithText(header: "Warning", message: "You don't have enough money!")
+        } else {
+            icePurchased += 1
+            iceStock += 1
+            cash -= 1
+            updateView()
+        }
+        
     }
     
     @IBAction func icePurchaseMinusButtonPressed(sender: AnyObject) {
         println("Unpurchase 1 ice cube")
        
-        if iceStock <= 0 {
-            showAlertWithText(header: "0 ice cubes", message: "You can't have less than 0 ice cubes")
+        if icePurchased <= 0 {
+            showAlertWithText(header: "Unable to sell", message: "You can't sell ice")
         } else {
+            icePurchased -= 1
             iceStock -= 1
             cash += 1
             updateView()
@@ -102,6 +119,8 @@ class ViewController: UIViewController {
         lemonStockLabel.text = "\(lemonStock) lemons"
         iceStockLabel.text = "\(iceStock) ice cubes"
         cashLabel.text = "$\(cash)"
+        icePurchaseLabel.text = "\(icePurchased)"
+        lemonPurchaseLabel.text = "\(lemonPurchased)"
     }
     
     func showAlertWithText(header:String = "Warnings", message:String) {
