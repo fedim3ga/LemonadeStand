@@ -49,8 +49,22 @@ class ViewController: UIViewController {
             showAlertWithText(message: "You must add at least one of each item to the mix")
         }
         else {
-            mixRatio = Double(lemonMixed)/Double(iceMixed)
-            println("Mix Ratio: \(mixRatio)")
+            var customerArray = Factory.createCustomers()
+            var earnings = GameBrain.didTheyBuy(customerArray)
+            cash += earnings
+            
+//           lemonMixed = 0
+//           iceMixed = 0
+//            lemonPurchased = 0
+//            icePurchased = 0
+            
+            updateView()
+            
+            // customerArray = Factory.createCustomers()
+            // 
+            
+            
+            
         }
         
         
@@ -62,8 +76,7 @@ class ViewController: UIViewController {
     // PURCHASE AND UNPURCHASE BUTTONS
 
     @IBAction func lemonPurchaseAddButtonPressed(sender: AnyObject) {
-        println("Purchase 1 lemon")
-        
+
         if cash < 2 {
             showAlertWithText(header: "Warning", message: "You don't have enough money!")
         } else {
@@ -75,7 +88,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func lemonPurchaseMinusButtonPressed(sender: AnyObject) {
-        println("Unpurchase 1 lemon")
+
         
         if lemonPurchased <= 0 {
             showAlertWithText(header: "Unable to sell", message: "You can't sell lemons")
@@ -91,7 +104,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func icePurchaseAddButtonPressed(sender: AnyObject) {
-        println("Purchase 1 ice cube")
+
         
         if cash < 1 {
             showAlertWithText(header: "Warning", message: "You don't have enough money!")
@@ -105,7 +118,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func icePurchaseMinusButtonPressed(sender: AnyObject) {
-        println("Unpurchase 1 ice cube")
+
        
         if icePurchased <= 0 {
             showAlertWithText(header: "Unable to sell", message: "You can't sell ice")
@@ -125,7 +138,7 @@ class ViewController: UIViewController {
     // MIX AND UNMIX BUTTONS
 
     @IBAction func lemonMixAddButtonPressed(sender: AnyObject) {
-        println("Add 1 lemon to mix")
+
         if lemonStock <= 0 {
             showAlertWithText(message: "No more lemons!")
         }
@@ -137,7 +150,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func lemonMixMinusButtonPressed(sender: AnyObject) {
-        println("Remove 1 lemon from mix")
+
         
         if lemonMixed <= 0 {
             showAlertWithText(message: "No more lemons from mix!")
@@ -150,7 +163,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func iceMixAddButtonPressed(sender: AnyObject) {
-        println("Add 1 ice cube to mix")
+
         if iceStock <= 0 {
             showAlertWithText(message: "No more ice!")
         }
@@ -162,7 +175,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func iceMixMinusButtonPressed(sender: AnyObject) {
-        println("Remove 1 ice cube from mix")
+
         
         if iceMixed <= 0 {
             showAlertWithText(message: "No more ice from mix!")
@@ -175,6 +188,18 @@ class ViewController: UIViewController {
     }
     
     //
+    
+    class func calcMixRatio() -> Double {
+        
+        
+        
+        
+        // MIX RATIO DOESN'T WORK
+        var mixRatio = Double(lemonMixed)/Double(iceMixed)
+        println("Mix Ratio: \(mixRatio)")
+        return mixRatio
+    }
+    
 
     func updateView() {
         lemonStockLabel.text = "\(lemonStock) lemons"
