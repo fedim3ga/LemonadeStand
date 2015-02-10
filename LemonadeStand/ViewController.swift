@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     var icePurchased = 0
     var lemonMixed = 0
     var iceMixed = 0
+    var mixRatio:Double = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,17 @@ class ViewController: UIViewController {
 
     @IBAction func startDayButtonPressed(sender: AnyObject) {
         println("Day started!")
+        if lemonMixed <= 0 || iceMixed <= 0 {
+            showAlertWithText(message: "You must add at least one of each item to the mix")
+        }
+        else {
+            mixRatio = Double(lemonMixed)/Double(iceMixed)
+            println("Mix Ratio: \(mixRatio)")
+        }
+        
+        
+
+        
     }
     
     
