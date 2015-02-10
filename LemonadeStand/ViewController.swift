@@ -50,19 +50,36 @@ class ViewController: UIViewController {
         }
         else {
             var customerArray = Factory.createCustomers()
-            var earnings = GameBrain.didTheyBuy(customerArray)
-            cash += earnings
+            var mixRatio = calcMixRatio()
             
-//           lemonMixed = 0
-//           iceMixed = 0
-//            lemonPurchased = 0
-//            icePurchased = 0
+            if customerArray.count == 0 {
+                println("No customers today!")
+            }
+            else {
+
+            
+            for var index = 0; index < customerArray.count; index++ {
+                var didTheyLike = GameBrain.didTheyLike(customerArray[index], mixRatio: mixRatio)
+                if didTheyLike == true {
+                    cash += 1
+                    println("Sale!")
+                }
+                else {
+                    println("No sale :(")
+                }
+            }
+            }
+
+        
+        
+            
+            lemonMixed = 0
+            iceMixed = 0
+            lemonPurchased = 0
+            icePurchased = 0
             
             updateView()
-            
-            // customerArray = Factory.createCustomers()
-            // 
-            
+
             
             
         }
@@ -189,12 +206,8 @@ class ViewController: UIViewController {
     
     //
     
-    class func calcMixRatio() -> Double {
+    func calcMixRatio() -> Double {
         
-        
-        
-        
-        // MIX RATIO DOESN'T WORK
         var mixRatio = Double(lemonMixed)/Double(iceMixed)
         println("Mix Ratio: \(mixRatio)")
         return mixRatio
