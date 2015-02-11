@@ -79,6 +79,13 @@ class ViewController: UIViewController {
             icePurchased = 0
             
             updateView()
+            
+            if cash < 3 {
+                showAlertWithText(header: "GAME OVER", message: "You ran out of cash")
+            }
+            else {
+                println("")
+            }
 
             
             
@@ -215,8 +222,8 @@ class ViewController: UIViewController {
     
 
     func updateView() {
-        lemonStockLabel.text = "\(lemonStock) lemons"
-        iceStockLabel.text = "\(iceStock) ice cubes"
+        lemonStockLabel.text = "\(lemonStock)"
+        iceStockLabel.text = "\(iceStock)"
         cashLabel.text = "$\(cash)"
         icePurchaseLabel.text = "\(icePurchased)"
         lemonPurchaseLabel.text = "\(lemonPurchased)"
