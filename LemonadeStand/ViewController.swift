@@ -17,21 +17,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var icePurchaseLabel: UILabel!
     @IBOutlet weak var lemonMixLabel: UILabel!
     @IBOutlet weak var iceMixLabel: UILabel!
+
     
-    var lemonStock = 0
-    var iceStock = 0
-    var cash = 0
+
     var lemonPurchased = 0
     var icePurchased = 0
     var lemonMixed = 0
     var iceMixed = 0
     var mixRatio:Double = 0
+    
+    var price = Price()
+    var supplies = Supplies(aMoney: 20, aLemons: 1, aIceCubes: 1)
+    
+    var weatherArray: [[Int]] = [[-10, -9, -5, -7], [5, 8, 10, 9], [22, 25, 27, 23]]
+    
+    var weatherToday: [Int] = [0, 0, 0, 0]
+    
+    var weatherImageView: UIImageView = UIImageView(frame: CGRectMake(0, 50, 50, 50))
+
+    
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cash = 10
-        lemonStock = 1
-        iceStock = 1
+        view.addSubview(weatherImageView)
+        view.addSubview(weatherImageView)
+
+        simulateWeatherToday()
         updateView()
         
         
@@ -45,42 +58,49 @@ class ViewController: UIViewController {
 
     @IBAction func startDayButtonPressed(sender: AnyObject) {
         println("Day started!")
+        println(weatherImageView.image)
         if lemonMixed <= 0 || iceMixed <= 0 {
             showAlertWithText(message: "You must add at least one of each item to the mix")
         }
         else {
-            var customerArray = Factory.createCustomers()
+            
+            let average = findAverage(weatherToday)
+            let customers = Int(arc4random_uniform(UInt32(abs(average))))
+            println("customers: \(customers)")
+            
             var mixRatio = calcMixRatio()
-            
-            if customerArray.count == 0 {
-                println("No customers today!")
-            }
-            else {
 
-            
-            for var index = 0; index < customerArray.count; index++ {
-                var didTheyLike = GameBrain.didTheyLike(customerArray[index], mixRatio: mixRatio)
-                if didTheyLike == true {
-                    cash += 1
-                    println("Sale!")
+            for x in 0...customers {
+                
+                let preference = Double(arc4random_uniform(UInt32(100))) / 100
+                
+                if preference < 0.4 && mixRatio > 1 {
+                    supplies.money += 2
+                    println("Paid")
+                }
+                else if preference > 0.6 && mixRatio < 1 {
+                    supplies.money += 2
+                    println("Paid")
+                }
+                else if preference <= 0.6 && preference >= 0.4 && mixRatio == 1 {
+                    supplies.money += 2
+                    println("Paid")
                 }
                 else {
-                    println("No sale :(")
+                    println("no match, no revenue")
                 }
             }
-            }
 
-        
-        
-            
             lemonMixed = 0
             iceMixed = 0
             lemonPurchased = 0
             icePurchased = 0
             
+            
+            simulateWeatherToday()
             updateView()
             
-            if cash < 3 {
+            if supplies.money < 3 {
                 showAlertWithText(header: "GAME OVER", message: "You ran out of cash")
             }
             else {
@@ -101,12 +121,12 @@ class ViewController: UIViewController {
 
     @IBAction func lemonPurchaseAddButtonPressed(sender: AnyObject) {
 
-        if cash < 2 {
+        if supplies.money < price.lemon {
             showAlertWithText(header: "Warning", message: "You don't have enough money!")
         } else {
             lemonPurchased += 1
-            lemonStock += 1
-            cash -= 2
+            supplies.lemons += 1
+            supplies.money -= price.lemon
             updateView()
         }
     }
@@ -116,12 +136,12 @@ class ViewController: UIViewController {
         
         if lemonPurchased <= 0 {
             showAlertWithText(header: "Unable to sell", message: "You can't sell lemons")
-        } else if lemonStock <= 0 {
+        } else if supplies.lemons <= 0 {
             showAlertWithText(message: "You can't have a negative amount of lemons. Remove some from the mix")
         } else {
             lemonPurchased -= 1
-            lemonStock -= 1
-            cash += 2
+            supplies.lemons -= 1
+            supplies.money += price.lemon
             updateView()
         }
 
@@ -130,12 +150,12 @@ class ViewController: UIViewController {
     @IBAction func icePurchaseAddButtonPressed(sender: AnyObject) {
 
         
-        if cash < 1 {
+        if supplies.money < 1 {
             showAlertWithText(header: "Warning", message: "You don't have enough money!")
         } else {
             icePurchased += 1
-            iceStock += 1
-            cash -= 1
+            supplies.iceCubes += 1
+            supplies.money -= price.iceCube
             updateView()
         }
         
@@ -146,12 +166,12 @@ class ViewController: UIViewController {
        
         if icePurchased <= 0 {
             showAlertWithText(header: "Unable to sell", message: "You can't sell ice")
-        } else if iceStock <= 0 {
+        } else if supplies.iceCubes <= 0 {
             showAlertWithText(message: "You can't have a negative amount of ice cubes. Remove some from the mix")
         } else {
             icePurchased -= 1
-            iceStock -= 1
-            cash += 1
+            supplies.iceCubes -= 1
+            supplies.money += price.iceCube
             updateView()
         }
         
@@ -163,11 +183,11 @@ class ViewController: UIViewController {
 
     @IBAction func lemonMixAddButtonPressed(sender: AnyObject) {
 
-        if lemonStock <= 0 {
+        if supplies.lemons <= 0 {
             showAlertWithText(message: "No more lemons!")
         }
         else {
-            lemonStock -= 1
+            supplies.lemons -= 1
             lemonMixed += 1
             updateView()
         }
@@ -180,7 +200,7 @@ class ViewController: UIViewController {
             showAlertWithText(message: "No more lemons from mix!")
         }
         else {
-            lemonStock += 1
+            supplies.lemons += 1
             lemonMixed -= 1
             updateView()
         }
@@ -188,11 +208,11 @@ class ViewController: UIViewController {
     
     @IBAction func iceMixAddButtonPressed(sender: AnyObject) {
 
-        if iceStock <= 0 {
+        if supplies.iceCubes <= 0 {
             showAlertWithText(message: "No more ice!")
         }
         else {
-            iceStock -= 1
+            supplies.iceCubes -= 1
             iceMixed += 1
             updateView()
         }
@@ -205,7 +225,7 @@ class ViewController: UIViewController {
             showAlertWithText(message: "No more ice from mix!")
         }
         else {
-            iceStock += 1
+            supplies.iceCubes += 1
             iceMixed -= 1
             updateView()
         }
@@ -222,9 +242,9 @@ class ViewController: UIViewController {
     
 
     func updateView() {
-        lemonStockLabel.text = "\(lemonStock)"
-        iceStockLabel.text = "\(iceStock)"
-        cashLabel.text = "$\(cash)"
+        lemonStockLabel.text = "\(supplies.lemons)"
+        iceStockLabel.text = "\(supplies.iceCubes)"
+        cashLabel.text = "$\(supplies.money)"
         icePurchaseLabel.text = "\(icePurchased)"
         lemonPurchaseLabel.text = "\(lemonPurchased)"
         lemonMixLabel.text = "\(lemonMixed)"
@@ -236,6 +256,32 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    func simulateWeatherToday() {
+        let index = Int(arc4random_uniform(UInt32(weatherArray.count)))
+        weatherToday = weatherArray[index]
+        switch index {
+            case 0: weatherImageView.image = UIImage(named: "Cold")
+            case 1: weatherImageView.image = UIImage(named: "Mild")
+            case 2: weatherImageView.image = UIImage(named: "Warm")
+            default: weatherImageView.image = UIImage(named: "Warm")
+        }
+    }
+    
+    func findAverage(data:[Int]) -> Int {
+        var sum = 0
+        
+        for x in data {
+            sum += x
+        }
+        
+        // get average
+        
+        var average:Double = Double(sum) / Double(data.count)
+        var rounded:Int = Int(ceil(average))
+        return rounded
+        }
+    
     
     
     

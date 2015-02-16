@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C106a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -19,7 +19,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portrait - 7" translatesAutoresizingMaskIntoConstraints="NO" id="9l5-A6-eM2">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="667"/>
+                                    <rect key="frame" x="0.0" y="102" width="382" height="565"/>
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6C-jD-1NL">
@@ -28,7 +28,7 @@
                                 <color key="textColor" red="0.792156862745098" green="0.80392156862745101" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="65" y="119" width="29" height="21"/>
+                                    <rect key="frame" x="61" y="195" width="29" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9A-c3-PIo">
@@ -37,7 +37,7 @@
                                 <color key="textColor" red="0.792156862745098" green="0.80392156862745101" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="187" y="119" width="9" height="21"/>
+                                    <rect key="frame" x="187" y="195" width="9" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULr-Jq-9HJ">
@@ -46,7 +46,7 @@
                                 <color key="textColor" red="0.792156862745098" green="0.80392156862745101" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="295" y="119" width="18" height="21"/>
+                                    <rect key="frame" x="295" y="201" width="18" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYe-Pe-Wfb">
@@ -55,85 +55,25 @@
                                 <color key="textColor" red="0.792156862745098" green="0.80392156862745101" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="69" y="225" width="50" height="21"/>
+                                    <rect key="frame" x="69" y="291" width="50" height="21"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkr-Er-87d">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="tintColor" red="0.16862745098039217" green="0.074509803921568626" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="+">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="133" y="215" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="lemonPurchaseAddButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tzl-SI-Ymu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pj-Az-ZXr">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="tintColor" red="0.16862745098039217" green="0.074509803921568626" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="-">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="7" y="215" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="lemonPurchaseMinusButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qLe-1y-Hwe"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFj-vm-vde">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.792156862745098" green="0.80392156862745101" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="265" y="222" width="50" height="21"/>
+                                    <rect key="frame" x="265" y="291" width="50" height="21"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHz-RG-Lxr">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="tintColor" red="0.16862745098039217" green="0.074509803921568626" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="+">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="321" y="215" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="icePurchaseAddButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="84q-iw-xGB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMk-3O-Ygv">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="tintColor" red="0.16862745098039217" green="0.074509803921568626" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="-">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="209" y="215" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="icePurchaseMinusButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hgq-wF-kF4"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qk8-p8-57b">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.792156862745098" green="0.80392156862745101" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="69" y="398" width="50" height="21"/>
+                                    <rect key="frame" x="69" y="439" width="50" height="21"/>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1s-Rr-v06">
@@ -145,7 +85,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="133" y="389" width="46" height="30"/>
+                                    <rect key="frame" x="133" y="430" width="46" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="lemonMixAddButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BCF-Hi-brV"/>
@@ -160,7 +100,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="7" y="391" width="46" height="30"/>
+                                    <rect key="frame" x="7" y="430" width="46" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="lemonMixMinusButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Gc-v9-dnd"/>
@@ -175,7 +115,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="321" y="389" width="46" height="30"/>
+                                    <rect key="frame" x="323" y="429" width="46" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="iceMixAddButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zNI-QG-b6n"/>
@@ -190,7 +130,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="209" y="391" width="46" height="30"/>
+                                    <rect key="frame" x="209" y="434" width="46" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="iceMixMinusButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G8O-sf-WMm"/>
@@ -202,7 +142,7 @@
                                 <color key="textColor" red="0.792156862745098" green="0.80392156862745101" blue="0.16078431372549021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="265" y="396" width="50" height="21"/>
+                                    <rect key="frame" x="265" y="434" width="50" height="21"/>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjJ-cE-H93">
@@ -219,6 +159,66 @@
                                     <action selector="startDayButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X7Y-CR-t5T"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkr-Er-87d">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" red="0.16862745098039217" green="0.074509803921568626" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="+">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="133" y="281" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="lemonPurchaseAddButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tzl-SI-Ymu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pj-Az-ZXr">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" red="0.16862745098039217" green="0.074509803921568626" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="-">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="7" y="281" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="lemonPurchaseMinusButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qLe-1y-Hwe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHz-RG-Lxr">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" red="0.16862745098039217" green="0.074509803921568626" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="+">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="321" y="281" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="icePurchaseAddButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="84q-iw-xGB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMk-3O-Ygv">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" red="0.16862745098039217" green="0.074509803921568626" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="-">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="209" y="281" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="icePurchaseMinusButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hgq-wF-kF4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -228,11 +228,7 @@
                                 <exclude reference="n9A-c3-PIo"/>
                                 <exclude reference="ULr-Jq-9HJ"/>
                                 <exclude reference="GYe-Pe-Wfb"/>
-                                <exclude reference="Wkr-Er-87d"/>
-                                <exclude reference="8Pj-Az-ZXr"/>
                                 <exclude reference="YFj-vm-vde"/>
-                                <exclude reference="DHz-RG-Lxr"/>
-                                <exclude reference="QMk-3O-Ygv"/>
                                 <exclude reference="Qk8-p8-57b"/>
                                 <exclude reference="y1s-Rr-v06"/>
                                 <exclude reference="sMj-6O-Xrt"/>
@@ -240,6 +236,10 @@
                                 <exclude reference="KqL-bQ-fZY"/>
                                 <exclude reference="NPX-kC-Mdt"/>
                                 <exclude reference="UjJ-cE-H93"/>
+                                <exclude reference="Wkr-Er-87d"/>
+                                <exclude reference="8Pj-Az-ZXr"/>
+                                <exclude reference="DHz-RG-Lxr"/>
+                                <exclude reference="QMk-3O-Ygv"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -249,11 +249,7 @@
                                 <include reference="n9A-c3-PIo"/>
                                 <include reference="ULr-Jq-9HJ"/>
                                 <include reference="GYe-Pe-Wfb"/>
-                                <include reference="Wkr-Er-87d"/>
-                                <include reference="8Pj-Az-ZXr"/>
                                 <include reference="YFj-vm-vde"/>
-                                <include reference="DHz-RG-Lxr"/>
-                                <include reference="QMk-3O-Ygv"/>
                                 <include reference="Qk8-p8-57b"/>
                                 <include reference="y1s-Rr-v06"/>
                                 <include reference="sMj-6O-Xrt"/>
@@ -261,6 +257,10 @@
                                 <include reference="KqL-bQ-fZY"/>
                                 <include reference="NPX-kC-Mdt"/>
                                 <include reference="UjJ-cE-H93"/>
+                                <include reference="Wkr-Er-87d"/>
+                                <include reference="8Pj-Az-ZXr"/>
+                                <include reference="DHz-RG-Lxr"/>
+                                <include reference="QMk-3O-Ygv"/>
                             </mask>
                         </variation>
                     </view>
